@@ -3,19 +3,22 @@ Section: ruby
 Priority: optional
 Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
 Uploaders: Balasankar C <balasankarc@autistici.org>
-Build-Depends: debhelper (>= 7.0.50~), gem2deb, ruby-rspec, rake
-Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 7.0.50~), gem2deb, ruby-rspec, rake, ruby-shindo, ruby-fog-core, ruby-fog-json
+Standards-Version: 3.9.6
 Vcs-Git: git://anonscm.debian.org/pkg-ruby-extras/ruby-fog-serverlove.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-ruby-extras/ruby-fog-serverlove.git;a=summary
-Homepage: 
-Testsuite: autopkgtest
+Homepage: https://github.com/fog/fog-serverlove
+Testsuite: autopkgtest-pkg-ruby
 XS-Ruby-Versions: all
 
 Package: ruby-fog-serverlove
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
-# fog-core (>= 0), fog-json (>= 0), rake (>= 0, development), minitest (>= 0, development), shindo (>= 0, development), turn (>= 0, development), pry (>= 0, development), coveralls (>= 0, development), rubocop (>= 0, development)
-Description: Module for the 'fog' gem to support ServerLove.
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, ruby-fog-core, ruby-fog-json
+Breaks: ruby-fog (<< 1.25~)
+Replaces: ruby-fog (<< 1.25~)
+Description: Module for the 'fog' gem to support ServerLove
  This library can be used as a module for `fog` or as standalone provider
- to use the ServerLove in applications.
+ to use the ServerLove in applications. Serverlove is the new cloud server 
+ service from Melbourne Server Hosting. More details of serverlove can be
+ found at http://www.serverlove.com
